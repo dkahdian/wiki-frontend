@@ -434,9 +434,4 @@ export class GraphCanvasComponent implements OnDestroy {
   public toggleNode(nodeId: string): void {
     this.handleNodeClick(nodeId);
   }
-
-  // Public method to get selected node
-  public getSelectedNode(): GraphNode | null {
-    return this.selectedNode();
-  }
 }

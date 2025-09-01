@@ -12,16 +12,15 @@ export class ApiClientService {
   private baseUrl = environment.apiBaseUrl;
 
   searchArticles(query: string, limit: number = environment.defaultSearchLimit): Observable<SearchResult> {
-  const url = `${this.baseUrl}/search?q=${encodeURIComponent(query)}`;
+    const url = `${this.baseUrl}/search?q=${encodeURIComponent(query)}&limit=${limit}`;
 
-  // Note: Do not set Content-Type on GET; it triggers a CORS preflight unnecessarily
-  return this.http.get<SearchResult>(url).pipe(
-      catchError(error => {
-        console.error('Search API Error:', error);
-        return throwError(() => new Error(`Search failed: ${error.message || 'Unknown error'}`));
-      })
-    );
-  }
+    // Note: Do not set Content-Type on GET; it triggers a CORS preflight unnecessarily
+    return this.http.get<SearchResult>(url).pipe(
+        catchError(error => {
+          return throwError(() => new Error(`Search failed: ${error.message || 'Unknown error'}`));
+        })
+      );
+    }
 
   getArticleLinks(title: string): Observable<LinksResult> {
     // Convert spaces to underscores for API call
@@ -30,7 +29,6 @@ export class ApiClientService {
 
   return this.http.get<LinksResult>(url).pipe(
       catchError(error => {
-        console.error('Links API Error:', error);
         return throwError(() => new Error(`Links fetch failed: ${error.message || 'Unknown error'}`));
       })
     );

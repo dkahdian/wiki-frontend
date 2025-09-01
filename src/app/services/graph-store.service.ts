@@ -64,7 +64,7 @@ export class GraphStoreService {
         }
         return a.localeCompare(b);
       })
-      .slice(0, environment.graph.perRootMax); // Cap per root
+      .slice(0, environment.graphPerRootMax); // Cap per root
 
     // Check if adding these nodes would exceed overall limit
     const currentNodeCount = this.visibleNodeCount();
@@ -73,11 +73,11 @@ export class GraphStoreService {
     let updatedNodes: Map<string, GraphNode>;
     let updatedLinks: Map<string, GraphLink>;
     
-    if (currentNodeCount + newNodesCount > environment.graph.overallMax) {
+    if (currentNodeCount + newNodesCount > environment.graphOverallMax) {
       // Clear canvas, keep only this root node and mark it as the last expanded root
       this.lastExpandedRoot.set(nodeId);
       updatedNodes = new Map<string, GraphNode>();
-      updatedNodes.set(nodeId, { ...node, expanded: true, degree: Math.min(linksResult.count, environment.graph.perRootMax) });
+      updatedNodes.set(nodeId, { ...node, expanded: true, degree: Math.min(linksResult.count, environment.graphPerRootMax) });
       updatedLinks = new Map<string, GraphLink>();
       
       // Update the signals immediately for the cleared state
@@ -89,7 +89,7 @@ export class GraphStoreService {
       this.lastExpandedRoot.set(nodeId);
       // Update node as expanded
       updatedNodes = new Map(this.nodes());
-      updatedNodes.set(nodeId, { ...node, expanded: true, degree: Math.min(linksResult.count, environment.graph.perRootMax) });
+      updatedNodes.set(nodeId, { ...node, expanded: true, degree: Math.min(linksResult.count, environment.graphPerRootMax) });
       updatedLinks = new Map(this.links());
     }
 
