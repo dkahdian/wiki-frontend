@@ -38,14 +38,6 @@ jobs:
 
     - name: Build Angular app
       run: npm run build -- --configuration production
-      env:
-        API_BASE_URL: ${{ secrets.API_BASE_URL }}
-        DOMAIN: ${{ secrets.DOMAIN }}
-        DEFAULT_SEARCH_LIMIT: ${{ secrets.DEFAULT_SEARCH_LIMIT || '10' }}
-        GRAPH_PER_ROOT_MAX: ${{ secrets.GRAPH_PER_ROOT_MAX || '50' }}
-        GRAPH_OVERALL_MAX: ${{ secrets.GRAPH_OVERALL_MAX || '200' }}
-        GRAPH_LAYOUT: ${{ secrets.GRAPH_LAYOUT || 'force' }}
-        PRODUCTION: 'true'
 
     - name: List build output
       run: |

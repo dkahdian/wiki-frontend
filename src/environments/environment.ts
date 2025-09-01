@@ -1,7 +1,6 @@
 export const environment = {
   production: false,
-  // These will be replaced by actual environment variables in production
-  apiBaseUrl: 'http://localhost:8080',
+  apiBaseUrl: 'https://wiki-dwuc.onrender.com',
   domain: 'http://localhost:4200',
   defaultSearchLimit: 10,
   graphPerRootMax: 20,
