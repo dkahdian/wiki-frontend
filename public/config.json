@@ -1,0 +1,8 @@
+{
+  "apiBaseUrl": "https://your-api-domain.com",
+  "domain": "https://yourusername.github.io/wiki-frontend",
+  "defaultSearchLimit": 10,
+  "graphPerRootMax": 50,
+  "graphOverallMax": 200,
+  "graphLayout": "force"
+}
