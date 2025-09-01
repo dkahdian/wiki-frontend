@@ -47,10 +47,17 @@ jobs:
         GRAPH_LAYOUT: ${{ secrets.GRAPH_LAYOUT || 'force' }}
         PRODUCTION: 'true'
 
+    - name: List build output
+      run: |
+        echo "Contents of dist/wiki-frontend-temp:"
+        ls -la dist/wiki-frontend-temp/
+        echo "Contents of dist/wiki-frontend-temp/browser:"
+        ls -la dist/wiki-frontend-temp/browser/
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./dist/wiki-frontend-temp
+        path: ./dist/wiki-frontend-temp/browser
 
   deploy:
     environment:
