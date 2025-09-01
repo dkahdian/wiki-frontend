@@ -4,7 +4,7 @@ An Angular web application for visualizing Wikipedia article connections as an i
 
 ## Features
 
-- Article search with typeahead results from your backend (min chars: 0; limit: 10)
+- Article search with typeahead results from the backend (min chars: 1; limit: 10)
 - Interactive graph rendering with Cytoscape.js (canvas-based)
 - Double-headed edges when reciprocal links are detected
 - Click to expand a node (loads its outbound links) or collapse it (hides its children)
@@ -98,7 +98,7 @@ Normalization and filtering
 
 ### Production build
 1. Run: `ng build --configuration production`
-2. Serve the contents of `dist` with your preferred static host (GitHub Pages supported)
+2. Serve the contents of `dist` with static host (GitHub Pages)
 
 ## Configuration
 
@@ -193,7 +193,7 @@ postcss.config.js
 - SPA fallback: include a `404.html` that redirects to `index.html`
 - Environment config baked at build time (no runtime config file)
 - CI: GitHub Actions workflow may be added to build and publish to Pages (optional)
-- For custom domains on GitHub Pages, include a `CNAME` file in the published site root with your domain name
+- For custom domains on GitHub Pages, include a `CNAME` file in the published site root with domain name
 
 ## Accessibility and i18n
 

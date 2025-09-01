@@ -1,0 +1,62 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #0F172A;
+  overflow: hidden; /* Prevent scrollbars */
+  position: relative; /* For absolute positioning of clear button */
+}
+
+.search-area {
+  flex-shrink: 0;
+  border-bottom: 1px solid #374151;
+  /* No padding here - let the search component handle its own padding */
+}
+
+.graph-area {
+  flex: 1;
+  min-height: 0; /* Important: allows flex item to shrink below content size */
+  overflow: hidden; /* Prevent graph from overflowing */
+}
+
+.clear-button-container {
+  position: fixed;
+  bottom: 3rem;
+  right: 1.5rem;
+  z-index: 100; /* Below node panel but above graph */
+}
+
+.clear-graph-button {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(248, 113, 113, 0.5);
+  color: #FCA5A5;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.clear-graph-button:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: rgba(248, 113, 113, 0.7);
+  color: #FECACA;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.4);
+}
+
+.clear-graph-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.footer-area {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #374151;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
