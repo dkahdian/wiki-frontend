@@ -102,41 +102,9 @@ Normalization and filtering
 
 ## Configuration
 
-### Environment Variables
-
-The application supports configuration via environment variables. Copy `.env.example` to `.env` and customize:
-
-```bash
-# API Configuration
-API_BASE_URL=http://localhost:8080
-DOMAIN=http://localhost:4200
-
-# Search Configuration
-DEFAULT_SEARCH_LIMIT=10
-
-# Graph Configuration
-GRAPH_PER_ROOT_MAX=20
-GRAPH_OVERALL_MAX=200
-GRAPH_LAYOUT=force
-
-# Environment
-PRODUCTION=false
-```
-
-For production deployments, set these environment variables in your hosting platform (Vercel, Netlify, etc.) or CI/CD pipeline.
-
-### Angular Environments
-
-The environment files (`environment.ts` and `environment.prod.ts`) will use these environment variables:
-
-- Development: Uses hardcoded defaults with fallbacks to environment variables
-- Production: Uses environment variables exclusively (will throw errors if required vars are missing)
-
-### Legacy Configuration (Deprecated)
-
-Angular environments (`environment.ts`) - now uses environment variables:
-- `apiBaseUrl`: backend base URL
-- `domain`: custom domain for deployment (used for metadata and links)
+Angular environments (`environment.ts` and `environment.prod.ts`):
+- `apiBaseUrl`: backend base URL (https://wiki-dwuc.onrender.com)
+- `domain`: custom domain for deployment
 - `defaultSearchLimit`: default number of results for search (10)
 - Graph configuration:
   - `graphPerRootMax`: 20 in dev, 50 in prod (links per root; order by title length then alphabetical)
